@@ -5,6 +5,8 @@ const covid19ImpactEstimator = (data) => {
 
   const { periodType } = input;
   const { timeToElapse } = input;
+  const { region: { avgDailyIncomeInUSD: dailyIncome } } = input;
+  const { region: { avgDailyIncomePopulation: population } } = input;
 
   if (periodType === 'months') {
     const days = timeToElapse * 30;
@@ -39,6 +41,32 @@ const covid19ImpactEstimator = (data) => {
   severeImpact.casesForVentilatorsByRequestedTime = (
     parseInt(0.2 * severeImpact.infectionsByRequestedTime, 10)
   );
+
+  if (periodType === 'months') {
+    const days = timeToElapse * 30;
+    impact.dollarsInFlight = (
+      parseInt((impact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+    );
+    severeImpact.dollarsInFlight = (
+      parseInt((severeImpact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+    );
+  } else if (periodType === 'weeks') {
+    const days = timeToElapse * 7;
+    impact.dollarsInFlight = (
+      parseInt((impact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+    );
+    severeImpact.dollarsInFlight = (
+      parseInt((severeImpact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+    );
+  } else {
+    const days = timeToElapse;
+    impact.dollarsInFlight = (
+      parseInt((impact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+    );
+    severeImpact.dollarsInFlight = (
+      parseInt((severeImpact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+    );
+  }
 
   return {
     data: input,
