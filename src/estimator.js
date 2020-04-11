@@ -32,11 +32,17 @@ const covid19ImpactEstimator = (data) => {
     parseInt(0.35 * input.totalHospitalBeds - severeImpact.severeCasesByRequestedTime, 10)
   );
   impact.casesForICUByRequestedTime = parseInt(0.5 * impact.infectionsByRequestedTime, 10);
-  severeImpact.casesForICUByRequestedTime = parseInt(0.5 * severeImpact.infectionsByRequestedTime, 10);
+  severeImpact.casesForICUByRequestedTime = (
+    parseInt(0.5 * severeImpact.infectionsByRequestedTime, 10)
+  );
   impact.casesForVentilatorsByRequestedTime = parseInt(0.2 * impact.infectionsByRequestedTime, 10);
-  severeImpact.casesForVentilatorsByRequestedTime = parseInt(0.2 * severeImpact.infectionsByRequestedTime, 10);
+  severeImpact.casesForVentilatorsByRequestedTime = (
+    parseInt(0.2 * severeImpact.infectionsByRequestedTime, 10)
+  );
   impact.dollarsInFlight = parseInt((impact.infectionsByRequestedTime * 0.65 * 1.5) / 30, 10);
-  severeImpact.dollarsInFlight = parseInt((severeImpact.infectionsByRequestedTime * 0.65 * 1.5) / 30, 10);
+  severeImpact.dollarsInFlight = (
+    parseInt((severeImpact.infectionsByRequestedTime * 0.65 * 1.5) / 30, 10)
+  );
 
 
   return {
