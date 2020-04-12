@@ -14,10 +14,10 @@ const covid19ImpactEstimator = (data) => {
     impact.infectionsByRequestedTime = impact.currentlyInfected * 2 ** factor;
     severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * 2 ** factor;
     impact.dollarsInFlight = (
-        parseInt((impact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+      parseInt((impact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
     );
-      severeImpact.dollarsInFlight = (
-        parseInt((severeImpact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+    severeImpact.dollarsInFlight = (
+      parseInt((severeImpact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
     );
   } else if (periodType === 'weeks') {
     const days = timeToElapse * 7;
@@ -25,10 +25,10 @@ const covid19ImpactEstimator = (data) => {
     impact.infectionsByRequestedTime = impact.currentlyInfected * 2 ** factor;
     severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * 2 ** factor;
     impact.dollarsInFlight = (
-        parseInt((impact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+      parseInt((impact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
     );
-      severeImpact.dollarsInFlight = (
-        parseInt((severeImpact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+    severeImpact.dollarsInFlight = (
+      parseInt((severeImpact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
     );
   } else {
     const days = timeToElapse;
@@ -36,10 +36,10 @@ const covid19ImpactEstimator = (data) => {
     impact.infectionsByRequestedTime = impact.currentlyInfected * 2 ** factor;
     severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * 2 ** factor;
     impact.dollarsInFlight = (
-        parseInt((impact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+      parseInt((impact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
     );
-      severeImpact.dollarsInFlight = (
-        parseInt((severeImpact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+    severeImpact.dollarsInFlight = (
+      parseInt((severeImpact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
     );
   }
 
