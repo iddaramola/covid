@@ -59,9 +59,6 @@ const covid19ImpactEstimator = (data) => {
   severeImpact.casesForVentilatorsByRequestedTime = (
     parseInt(0.2 * severeImpact.infectionsByRequestedTime, 10)
   );
-  
- 
-
   return {
     data: input,
     impact,
