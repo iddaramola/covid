@@ -13,16 +13,34 @@ const covid19ImpactEstimator = (data) => {
     const factor = parseInt(days / 3, 10);
     impact.infectionsByRequestedTime = impact.currentlyInfected * 2 ** factor;
     severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * 2 ** factor;
+    impact.dollarsInFlight = (
+        parseInt((impact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+    );
+      severeImpact.dollarsInFlight = (
+        parseInt((severeImpact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+    );
   } else if (periodType === 'weeks') {
     const days = timeToElapse * 7;
     const factor = parseInt(days / 3, 10);
     impact.infectionsByRequestedTime = impact.currentlyInfected * 2 ** factor;
     severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * 2 ** factor;
+    impact.dollarsInFlight = (
+        parseInt((impact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+    );
+      severeImpact.dollarsInFlight = (
+        parseInt((severeImpact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+    );
   } else {
     const days = timeToElapse;
     const factor = parseInt(days / 3, 10);
     impact.infectionsByRequestedTime = impact.currentlyInfected * 2 ** factor;
     severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * 2 ** factor;
+    impact.dollarsInFlight = (
+        parseInt((impact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+    );
+      severeImpact.dollarsInFlight = (
+        parseInt((severeImpact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
+    );
   }
 
   impact.severeCasesByRequestedTime = 0.15 * impact.infectionsByRequestedTime;
@@ -41,32 +59,8 @@ const covid19ImpactEstimator = (data) => {
   severeImpact.casesForVentilatorsByRequestedTime = (
     parseInt(0.2 * severeImpact.infectionsByRequestedTime, 10)
   );
-
-  if (periodType === 'months') {
-    const days = timeToElapse * 30;
-    impact.dollarsInFlight = (
-      parseInt((impact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
-    );
-    severeImpact.dollarsInFlight = (
-      parseInt((severeImpact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
-    );
-  } else if (periodType === 'weeks') {
-    const days = timeToElapse * 7;
-    impact.dollarsInFlight = (
-      parseInt((impact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
-    );
-    severeImpact.dollarsInFlight = (
-      parseInt((severeImpact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
-    );
-  } else {
-    const days = timeToElapse;
-    impact.dollarsInFlight = (
-      parseInt((impact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
-    );
-    severeImpact.dollarsInFlight = (
-      parseInt((severeImpact.infectionsByRequestedTime * population * dailyIncome) / days, 10)
-    );
-  }
+  
+ 
 
   return {
     data: input,
