@@ -25,10 +25,10 @@ const covid19ImpactEstimator = (data) => {
     impact.infectionsByRequestedTime = impact.currentlyInfected * 2 ** factor;
     severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * 2 ** factor;
     impact.dollarsInFlight = (
-      Math.trunc((impact.infectionsByRequestedTime * population * dailyIncome) / days)
+      Math.trunc((impact.infectionsByRequestedTime * population * dailyIncome) / (0.1 * days))
     );
     severeImpact.dollarsInFlight = (
-      Math.trunc((severeImpact.infectionsByRequestedTime * population * dailyIncome) / days)
+      Math.trunc((severeImpact.infectionsByRequestedTime * population * dailyIncome) / (0.1 * days))
     );
   } else {
     const days = timeToElapse;
@@ -36,10 +36,10 @@ const covid19ImpactEstimator = (data) => {
     impact.infectionsByRequestedTime = impact.currentlyInfected * 2 ** factor;
     severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * 2 ** factor;
     impact.dollarsInFlight = (
-      Math.trunc((impact.infectionsByRequestedTime * population * dailyIncome) / days)
+      Math.trunc((impact.infectionsByRequestedTime * population * dailyIncome) / (0.1 * days))
     );
     severeImpact.dollarsInFlight = (
-      Math.trunc((severeImpact.infectionsByRequestedTime * population * dailyIncome) / days)
+      Math.trunc((severeImpact.infectionsByRequestedTime * population * dailyIncome) / (0.1 * days))
     );
   }
 
